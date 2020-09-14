@@ -896,8 +896,7 @@ void func_809D2AA0(Boss01 *this, GlobalContext *globalCtx) {
     this->unk_1BA = 1;
 }
 
-GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D2BCC.asm")
-
+// ASSERTION ERROR!
 void func_809D2BCC(Boss01 *this, GlobalContext *globalCtx) {
     func_80136CD0(&this->skelAnime);
     func_800B8EC8(&this->actor, 0x3014);
@@ -986,8 +985,8 @@ GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D3C10.asm")
 
 void func_809D3CD0(Boss01 *this, GlobalContext *globalCtx) {
     Vec3f spB4;
-    f32 temp;
-    f32 temp2;
+    f32 xDiff;
+    f32 zDiff;
     Camera *camera = Play_GetCamera(globalCtx, 0); //spA8
     s16 i;
     s16 spA4;
@@ -1019,9 +1018,9 @@ void func_809D3CD0(Boss01 *this, GlobalContext *globalCtx) {
             this->unk_9F0.x = camera->focalPoint.x;
             this->unk_9F0.y = camera->focalPoint.y;
             this->unk_9F0.z = camera->focalPoint.z;
-            temp = this->unk_9E4.x - this->actor.currPosRot.pos.x;
-            temp2 = this->unk_9E4.z - this->actor.currPosRot.pos.z;
-            this->unk_A14 = atan_flip(temp2, temp);
+            xDiff = this->unk_9E4.x - this->actor.currPosRot.pos.x;
+            zDiff = this->unk_9E4.z - this->actor.currPosRot.pos.z;
+            this->unk_A14 = atan_flip(zDiff, xDiff);
             this->unk_A18 = -0.5f;
 
         case 1:
