@@ -1176,9 +1176,3 @@ D_80C1392C = ovl_En_Thiefbird_bss_start + 0x0000000C;
 D_80C16470 = ovl_Obj_Yado_bss_start + 0x00000000;
 D_80C1AD40 = ovl_En_Invadepoh_Demo_bss_start + 0x00000000;
 D_80C1AD80 = ovl_En_Invadepoh_Demo_bss_start + 0x00000040;
-
-// z_boss_01
-D_060222D0 = 0x060222D0;
-D_0600F0A8 = 0x0600F0A8;
-D_06022550 = 0x06022550;
-D_06018438 = 0x06018438;

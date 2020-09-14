@@ -5152,17 +5152,17 @@ void func_809D082C(void); // func_809D082C
 void func_809D089C(void); // func_809D089C
 void func_809D092C(void); // func_809D092C
 void func_809D0AA4(void); // func_809D0AA4
-void Boss01_Init(void); // func_809D0CE8
-void Boss01_Destroy(void); // func_809D118C
+void Boss01_Init(Actor* thisx, GlobalContext* globalCtx); // func_809D0CE8
+void Boss01_Destroy(Actor* thisx, GlobalContext* globalCtx); // func_809D118C
 void func_809D119C(void); // func_809D119C
-void func_809D1258(void); // func_809D1258
+void func_809D1258(Boss01* this, GlobalContext* globalCtx); // func_809D1258
 void func_809D12B4(void); // func_809D12B4
 void func_809D1AB8(void); // func_809D1AB8
-void func_809D1B2C(void); // func_809D1B2C
+void func_809D1B2C(Boss01* this, GlobalContext* globalCtx); // func_809D1B2C
 void func_809D1E5C(void); // func_809D1E5C
 void func_809D1E74(void); // func_809D1E74
-void func_809D1EA4(void); // func_809D1EA4
-void func_809D20D0(void); // func_809D20D0
+void func_809D1EA4(Boss01* this, GlobalContext* globalCtx, u8 arg2); // func_809D1EA4
+void func_809D20D0(Boss01* this, GlobalContext* globalCtx); // func_809D20D0
 void func_809D24EC(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE4 param_6, UNK_TYPE4 param_7, UNK_TYPE1 param_8, UNK_TYPE4 param_9, UNK_TYPE4 param_10, UNK_TYPE4 param_11, UNK_TYPE4 param_12, UNK_TYPE4 param_13, UNK_TYPE4 param_14); // func_809D24EC
 void func_809D2544(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE1 param_5, UNK_TYPE1 param_6, UNK_TYPE1 param_7, UNK_TYPE1 param_8, UNK_TYPE1 param_9, UNK_TYPE1 param_10, UNK_TYPE4 param_11); // func_809D2544
 void func_809D2574(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE1 param_5, UNK_TYPE1 param_6, UNK_TYPE1 param_7, UNK_TYPE1 param_8, UNK_TYPE1 param_9, UNK_TYPE1 param_10, UNK_TYPE4 param_11); // func_809D2574
@@ -5174,7 +5174,7 @@ void func_809D2780(void); // func_809D2780
 void func_809D27D4(void); // func_809D27D4
 void func_809D2858(void); // func_809D2858
 void func_809D2914(void); // func_809D2914
-void func_809D2A44(void); // func_809D2A44
+void func_809D2A44(Boss01* this, GlobalContext* globalCtx, u8 arg2); // func_809D2A44
 void func_809D2AA0(void); // func_809D2AA0
 void func_809D2BCC(void); // func_809D2BCC
 void func_809D2CDC(void); // func_809D2CDC
@@ -5191,7 +5191,7 @@ void func_809D3530(void); // func_809D3530
 void func_809D35A8(void); // func_809D35A8
 void func_809D365C(void); // func_809D365C
 void func_809D370C(void); // func_809D370C
-void func_809D3A7C(void); // func_809D3A7C
+void func_809D3A7C(Boss01* this, GlobalContext* globalCtx); // func_809D3A7C
 void func_809D3ADC(void); // func_809D3ADC
 void func_809D3C10(void); // func_809D3C10
 void func_809D3CD0(void); // func_809D3CD0
@@ -5199,27 +5199,27 @@ void func_809D441C(void); // func_809D441C
 void func_809D4464(void); // func_809D4464
 void func_809D44C0(void); // func_809D44C0
 void func_809D4668(void); // func_809D4668
-void Boss01_Update(void); // func_809D46E4
+void Boss01_Update(Boss01* this, GlobalContext* globalCtx); // func_809D46E4
 void func_809D519C(void); // func_809D519C
 void func_809D5584(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE4 param_6); // func_809D5584
 void func_809D55CC(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5); // func_809D55CC
-void Boss01_Draw(void); // func_809D5988
-void func_809D5B0C(void); // func_809D5B0C
+void Boss01_Draw(Boss01* this, GlobalContext* globalCtx); // func_809D5988
+void func_809D5B0C(Actor* thisx, GlobalContext* globalCtx); // func_809D5B0C
 void func_809D5BC4(void); // func_809D5BC4
 void func_809D5FB4(void); // func_809D5FB4
 void func_809D606C(void); // func_809D606C
-void func_809D62D4(void); // func_809D62D4
-void func_809D6314(void); // func_809D6314
+void func_809D62D4(Boss01* this, GlobalContext* globalCtx); // func_809D62D4
+void func_809D6314(Boss01* this, GlobalContext* globalCtx); // func_809D6314
 void func_809D6424(void); // func_809D6424
-void func_809D6488(void); // func_809D6488
-void func_809D64E0(void); // func_809D64E0
+void func_809D6488(Boss01* this, GlobalContext* globalCtx); // func_809D6488
+void func_809D64E0(Boss01* this, GlobalContext* globalCtx); // func_809D64E0
 void func_809D6540(void); // func_809D6540
-void func_809D6588(void); // func_809D6588
-void func_809D65E0(void); // func_809D65E0
+void func_809D6588(Boss01* this, GlobalContext* globalCtx); // func_809D6588
+void func_809D65E0(Boss01* this, GlobalContext* globalCtx); // func_809D65E0
 void func_809D670C(void); // func_809D670C
-void func_809D694C(void); // func_809D694C
+void func_809D694C(Actor* thisx, GlobalContext* globalCtx); // func_809D694C
 void func_809D6B08(void); // func_809D6B08
-void func_809D6BB4(void); // func_809D6BB4
+void func_809D6BB4(Actor* thisx, GlobalContext* globalCtx); // func_809D6BB4
 void func_809D6C98(void); // func_809D6C98
 void func_809D6E7C(void); // func_809D6E7C
 void func_809D73D4(void); // func_809D73D4

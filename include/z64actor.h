@@ -2,6 +2,7 @@
 #define _Z64ACTOR_H_
 
 #include <PR/ultratypes.h>
+#include <z64animation.h>
 #include <z64math.h>
 #include <z64collision_check.h>
 #include <unk.h>
@@ -56,7 +57,7 @@ typedef struct {
     /* 0x19 */ u8 damageEffect;
     /* 0x1A */ u8 impactEffect;
     /* 0x1B */ UNK_TYPE1 pad1B[0x1];
-} ActorA0; // size = 0x1C
+} CollisionCheckInfo; // size = 0x1C
 
 typedef struct {
     /* 0x00 */ s16 id;
@@ -124,12 +125,12 @@ typedef struct Actor {
     /* 0x086 */ UNK_TYPE1 pad86[0x2];
     /* 0x088 */ f32 unk88;
     /* 0x08C */ f32 unk8C;
-    /* 0x090 */ u16 unk90;
+    /* 0x090 */ u16 bgCheckFlags;
     /* 0x092 */ s16 rotTowardsLinkY;
     /* 0x094 */ f32 sqrdDistanceFromLink;
     /* 0x098 */ f32 xzDistanceFromLink;
     /* 0x09C */ f32 yDistanceFromLink;
-    /* 0x0A0 */ ActorA0 unkA0;
+    /* 0x0A0 */ CollisionCheckInfo colChkInfo;
     /* 0x0BC */ ActorShape shape;
     /* 0x0D4 */ UNK_TYPE1 padD4[0x18];
     /* 0x0EC */ Vec3f unkEC;
