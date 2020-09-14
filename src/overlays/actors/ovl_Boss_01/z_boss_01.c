@@ -86,22 +86,6 @@ AnimationHeader* D_809D7CF4[] = {
     0x060204AC, 
 };
 
-f32 D_809D7D24[] = {
-    0.0f, 
-    350.0f, 
-    -350.0f, 
-    350.0f, 
-    -350.0f, 
-};
-
-f32 D_809D7D38[] = {
-    0.0f, 
-    350.0f, 
-    350.0f, 
-    -350.0f, 
-    -350.0f, 
-};
-
 ActorDamageChart D_809D7990 = {
     0x10, 0xF1, 0x00, 0xE1,
     0xF1, 0xF1, 0x00, 0x00,
@@ -248,18 +232,33 @@ static ColCylinderInit sCylinderInit2 =
     { 8, 15, 10, { 0, 0, 0 } },
 };
 
+f32 D_809D7D24[] = {
+    0.0f, 
+    350.0f, 
+    -350.0f, 
+    350.0f, 
+    -350.0f, 
+};
+
+f32 D_809D7D38[] = {
+    0.0f, 
+    350.0f, 
+    350.0f, 
+    -350.0f, 
+    -350.0f, 
+};
 
 s16 D_809D8A10;
 Boss01* D_809D8A14;
 EnTanron1* D_809D8A18;
 u8 D_809D8A38;
-Boss01Struct1 D_809D8A58[100];
+Boss01Effect D_809D8A58[100];
 
 GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D0530.asm")
 
 GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D0550.asm")
 
-void func_809D0678(Boss01Struct1 *effect, Vec3f *arg1, s16 arg2) {
+void func_809D0678(Boss01Effect *effect, Vec3f *arg1, s16 arg2) {
     s16 i;
 
     for (i = 1; i < 100; i++, effect++) {
@@ -289,7 +288,7 @@ void func_809D0678(Boss01Struct1 *effect, Vec3f *arg1, s16 arg2) {
     }
 }
 
-void func_809D082C(Boss01Struct1 *effect, Vec3f *pos) {
+void func_809D082C(Boss01Effect *effect, Vec3f *pos) {
     if (effect->unk_28 == 0) {
         effect->unk_28 = 3;
         effect->unk_00 = *pos;
@@ -698,8 +697,8 @@ void func_809D1EA4(Boss01 *this, GlobalContext *globalCtx, u8 arg2) {
 }
 
 void func_809D20D0(Boss01 *this, GlobalContext *globalCtx) {
-    s16 i; //sp5E;
-    ActorPlayer* player = PLAYER;// sp58;
+    s16 i;
+    ActorPlayer* player = PLAYER;
     Vec3f sp4C;
 
     this->unk_163 = 1;
@@ -763,7 +762,7 @@ void func_809D20D0(Boss01 *this, GlobalContext *globalCtx) {
     this->unk_158 = -4.0f;
     if (((this->unk_162 == 3) || (this->unk_162 == 4) || (this->unk_162 == 7) || (this->unk_162 == 8)) &&
         (this->unk_9DC == 0x1E)) {
-        func_809D082C((Boss01Struct1*)globalCtx->actorEffects, &player->base.currPosRot.pos);
+        func_809D082C((Boss01Effect*)globalCtx->actorEffects, &player->base.currPosRot.pos);
         this->unk_14E[0] = 0x78;
     }
 
@@ -791,7 +790,7 @@ void func_809D20D0(Boss01 *this, GlobalContext *globalCtx) {
             case 10:
             case 11:
                 func_8019F1C0(&D_809D7980, 0x295B);
-                func_809D0678((Boss01Struct1*)globalCtx->actorEffects, &sp4C, 0);
+                func_809D0678((Boss01Effect*)globalCtx->actorEffects, &sp4C, 0);
                 break;
 
             case 3:
@@ -900,7 +899,6 @@ void func_809D2AA0(Boss01 *this, GlobalContext *globalCtx) {
 GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D2BCC.asm")
 
 void func_809D2BCC(Boss01 *this, GlobalContext *globalCtx) {
-
     func_80136CD0(&this->skelAnime);
     func_800B8EC8(&this->actor, 0x3014);
     if (this->unk_14C == 0) {
@@ -1269,7 +1267,7 @@ void func_809D670C(Boss01 *this, GlobalContext *globalCtx) {
     u8 dmg;
     ColBodyInfo* colliderBody;
 
-    Boss01Struct1* ptr = globalCtx->actorEffects;
+    Boss01Effect* effect = globalCtx->actorEffects;
 
     if (this->collider1.base.flagsAC & 2) {
         this->collider1.base.flagsAC &= ~2;
@@ -1305,8 +1303,9 @@ void func_809D670C(Boss01 *this, GlobalContext *globalCtx) {
         this->actor.speedXZ = this->actor.velocity.y = 0.0f;
     }
 
-    if ((ptr->unk_28 == 3) && (ptr->unk_2A < 0x96)) {
-        f32 sqrt = sqrtf(SQ(ptr->unk_00.x - this->actor.currPosRot.pos.x) + SQ(ptr->unk_00.z - this->actor.currPosRot.pos.z));
+    if ((effect->unk_28 == 3) && (effect->unk_2A < 0x96)) {
+        f32 sqrt = sqrtf(SQ(effect->unk_00.x - this->actor.currPosRot.pos.x) + SQ(effect->unk_00.z - this->actor.currPosRot.pos.z));
+        
         if ((sqrt < (KREG(49) + 210.0f)) && 
             (sqrt > (KREG(49) + 190.0f))) {
             func_800B8EC8(&this->actor, 0x3807);

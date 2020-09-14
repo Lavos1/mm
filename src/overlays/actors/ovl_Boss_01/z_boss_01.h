@@ -21,7 +21,7 @@ typedef struct {
     s16 unk_30;
     f32 unk_34;
     f32 unk_38;
-} Boss01Struct1; // size = 0x3C
+} Boss01Effect; // size = 0x3C
 
 typedef struct Boss01 {
     /* 0x000 */ Actor actor;
