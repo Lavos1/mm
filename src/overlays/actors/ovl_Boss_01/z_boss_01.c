@@ -1409,7 +1409,7 @@ void func_809D370C(Boss01* this, GlobalContext* globalCtx) {
                                     this->actor.topPosRot.pos.y, this->actor.topPosRot.pos.z, 0, 0, 3, 4);
                         goto block_23;
                     case 1:
-                    block_22:
+block_22:
                         func_809D441C(this, globalCtx);
                         this->unk_15C = 0xF;
                         func_800B8EC8(&this->actor, 0x389E);
@@ -1422,7 +1422,7 @@ void func_809D370C(Boss01* this, GlobalContext* globalCtx) {
                     case 8:
                     case 9:
                     case 10:
-                    block_23:
+block_23:
                         dmg = this->actor.colChkInfo.damage;
                         D_809D8A18->unk0148 = 0;
                         if (this->actor.colChkInfo.damageEffect == 1) {
@@ -1806,6 +1806,7 @@ void Boss01_Update(Actor* thisx, GameState* gameState) {
     if (this->unk_1BB != 0) {
         func_809D119C(this, globalCtx);
     }
+
     if (((this->unk_144 & (this->unk_1C0 - 1)) == 0) && (this->unk_1C0 != 0)) {
         Boss01* child = (Boss01*)Actor_SpawnWithParent(
             &globalCtx->actorCtx, &this->actor, globalCtx, ACTOR_BOSS_01, this->actor.currPosRot.pos.x,
@@ -1875,7 +1876,6 @@ void Boss01_Update(Actor* thisx, GameState* gameState) {
             break;
 
         case 10:
-
             this->unk_AD8 = 0xB;
             this->unk_ADA = 0x28;
             this->unk_AD9++;
