@@ -199,15 +199,26 @@ typedef struct {
     /* 0xA8C */ f32 unkA8C;
     /* 0xA90 */ UNK_TYPE1 padA90[0x44];
     /* 0xAD4 */ s16 unkAD4;
-    /* 0xAD6 */ UNK_TYPE1 padAD6[0x8];
+    /* 0xAD6 */ UNK_TYPE1 padAD6[0x6];
+    /* 0xADC */ s8 unkADC;
+    /* 0xADD */ UNK_TYPE1 padADD[0x1];
     /* 0xADE */ u8 unkADE;
     /* 0xADF */ UNK_TYPE1 padADF[0x4];
     /* 0xAE3 */ s8 unkAE3;
     /* 0xAE4 */ UNK_TYPE1 padAE4[0x44];
     /* 0xB28 */ s16 unkB28;
-    /* 0xB2A */ UNK_TYPE1 padB2A[0x72];
+    /* 0xB2A */ UNK_TYPE1 padB2A[0x56];
+    /* 0xB80 */ f32 unkB80;
+    /* 0xB84 */ s16 unkB84;
+    /* 0xB86 */ UNK_TYPE1 padB86[0x16];
     /* 0xB9C */ Vec3f unkB9C;
-    /* 0xBA8 */ UNK_TYPE1 padBA8[0x1D0];
+    /* 0xBA8 */ UNK_TYPE1 padBA8[0x19C];
+    /* 0xD44 */ u8 unkD44;
+    /* 0xD45 */ u8 unkD45[18];
+    /* 0xD57 */ u8 unkD57;
+    /* 0xD58 */ UNK_TYPE1 padD58[0x4];
+    /* 0xD5C */ s8 unkD5C;
+    /* 0xD5D */ UNK_TYPE1 padD5D[0x1B];
 } ActorPlayer; // size = 0xD78
 
 typedef struct {

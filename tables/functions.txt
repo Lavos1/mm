@@ -2594,7 +2594,7 @@
     0x80136B30:("func_80136B30",),
     0x80136BEC:("func_80136BEC",),
     0x80136C84:("func_80136C84",),
-    0x80136CD0:("func_80136CD0",),
+    0x80136CD0:("SkelAnime_FrameUpdateMatrix",),
     0x80136CF4:("func_80136CF4",),
     0x80136D98:("func_80136D98",),
     0x80136F04:("func_80136F04",),

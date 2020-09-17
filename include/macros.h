@@ -16,6 +16,7 @@
 
 #define SQ(x) ((x)*(x))
 #define ABS(x) ((x) >= 0 ? (x) : -(x))
+#define ABS16(x) ((s16)(x) < 0 ? -(s16)(x) : (s16)(x))
 #define ULTRA_ABS(x) ((x) > 0) ? (x) : -(x)
 #define DECR(x) ((x) == 0 ? 0 : ((x) -= 1))
 #define CLAMP(x, min, max) ((x) < (min) ? (min) : (x) > (max) ? (max) : (x))
@@ -30,5 +31,19 @@
 #define SET_NEXT_GAMESTATE(curState, newInit, newStruct) \
             (curState)->nextGameStateInit = (GameStateFunc)newInit; \
             (curState)->nextGameStateSize = sizeof(newStruct); 
+
+extern GraphicsContext* oGfxCtx;
+
+#define OPEN_DISPS(gfxCtx) \
+    {                                  \
+        GraphicsContext* oGfxCtx;      \
+        Gfx* dispRefs[2];              \
+        oGfxCtx = gfxCtx;
+
+#define CLOSE_DISPS(gfxCtx)                 \
+                                            \
+    }                                       \
+    (void)0
+
 
 #endif // _MACROS_H_

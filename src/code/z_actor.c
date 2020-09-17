@@ -137,7 +137,7 @@ void Actor_TitleCardContextInit(GlobalContext* ctxt, TitleCardContext* titleCtxt
     titleCtxt->alpha = 0;
 }
 
-void Actor_TitleCardCreate(GlobalContext* ctxt, TitleCardContext* titleCtxt, u32 texture, s16 param_4, s16 param_5, u8 param_6, u8 param_7) {
+void Actor_TitleCardCreate(GlobalContext* ctxt, TitleCardContext* titleCtxt, u8* texture, s16 param_4, s16 param_5, u8 param_6, u8 param_7) {
     titleCtxt->texture = texture;
     titleCtxt->unk4 = param_4;
     titleCtxt->unk6 = param_5;

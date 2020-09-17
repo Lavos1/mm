@@ -34,7 +34,7 @@ typedef struct Boss01 {
     /* 0x158 */ f32 unk_158;
     /* 0x15C */ s16 unk_15C;
     /* 0x15E */ s16 unk_15E;
-    /* 0x160 */ char unk160[0x1];
+    /* 0x160 */ u8 unk_160;
     /* 0x161 */ u8 unk_161;
     /* 0x162 */ u8 unk_162;
     /* 0x163 */ u8 unk_163;
@@ -44,17 +44,18 @@ typedef struct Boss01 {
     /* 0x1B0 */ f32 unk_1B0;
     /* 0x1B4 */ f32 unk_1B4;
     /* 0x1B8 */ u8 unk_1B8;
-    /* 0x1B9 */ char unk_1B9[0x1];
+    /* 0x1B9 */ u8 unk_1B9;
     /* 0x1BA */ u8 unk_1BA;
-    /* 0x1BB */ s8 unk_1BB;
-    /* 0x1BC */ char unk1BC[0x2];
+    /* 0x1BB */ u8 unk_1BB;
+    /* 0x1BC */ u8 unk_1BC;
     /* 0x1BE */ s16 unk_1BE;
-    /* 0x1C0 */ s8 unk_1C0;
+    /* 0x1C0 */ u8 unk_1C0;
     /* 0x1C1 */ u8 unk_1C1;
     /* 0x1C2 */ char unk1C2[0x2];
     /* 0x1C4 */ f32 unk_1C4;
     /* 0x1C8 */ f32 unk_1C8;
-    /* 0x1CC */ char unk1CC[0x4];
+    /* 0x1CC */ s16 unk_1CC;
+    /* 0x1CE */ s16 unk_1CE;
     /* 0x1D0 */ Vec3s limbDrawTable[52];
     /* 0x308 */ Vec3s transitionDrawTable[52];
     /* 0x440 */ Vec3f unk_440[2];
@@ -86,6 +87,12 @@ typedef struct Boss01 {
     /* 0xA78 */ ColCylinder collider2;
     /* 0xAC4 */ f32 unk_AC4;
     /* 0xAC8 */ f32 unk_AC8;
+    /* 0xACC */ f32 unk_ACC;
+    /* 0xAD0 */ f32 unk_AD0;
+    /* 0xAD4 */ f32 unk_AD4;
+    /* 0xAD8 */ u8 unk_AD8;
+    /* 0xAD9 */ u8 unk_AD9;
+    /* 0xADA */ s16 unk_ADA;
 } Boss01; // size = 0xADC
 
 extern const ActorInit Boss_01_InitVars;

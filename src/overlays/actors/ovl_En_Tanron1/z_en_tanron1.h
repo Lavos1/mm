@@ -7,7 +7,8 @@ struct EnTanron1;
 
 typedef struct EnTanron1 {
     /* 0x0000 */ Actor actor;
-    /* 0x0144 */ char unk0144[0x4];
+    /* 0x0144 */ u8 unk0144;
+    /* 0x0145 */ char unk0145[0x3];
     /* 0x0148 */ s16 unk0148;
     /* 0x014C */ char unk014C[0x3220];
 } EnTanron1; // size = 0x336C

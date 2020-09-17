@@ -338,7 +338,7 @@ class Disassembler:
     def make_label(self, imm, cur):
         addr = (imm*4) + cur + 4
         self.add_label(addr)
-        return ".L_%08X" % addr
+        return "L%08X" % addr
 
     def make_func(self, imm, cur):
         addr = (imm*4) + (cur & 0xF0000000)
@@ -445,9 +445,9 @@ class Disassembler:
                         write_header(f)
 
                     if addr in self.labels and addr not in self.switch_cases:
-                        f.write(".L_%08X:\n" % addr)
+                        f.write("L%08X:\n" % addr)
                     if addr in self.switch_cases:
-                        f.write("glabel .L_%08X\n" % addr)
+                        f.write("glabel L%08X\n" % addr)
                     if addr in self.functions:
                         name = get_func_name(addr)
                         f.write("\nglabel %s\n" % name)
@@ -463,7 +463,7 @@ class Disassembler:
                         if self.is_start_of_variable(addr):
                             name = self.make_load(addr)
                             f.write("glabel %s\n" % name)
-                        f.write("/* %06d 0x%08X */ .word\t.L_%08X\n" % (i, addr, inst))
+                        f.write("/* %06d 0x%08X */ .word\tL%08X\n" % (i, addr, inst))
                     elif self.is_start_of_variable(inst):
                         if self.is_start_of_variable(addr):
                             name = self.make_load(addr)
