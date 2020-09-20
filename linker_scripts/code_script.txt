@@ -309,7 +309,7 @@ SECTIONS
     . += 0x10;
     boot_bss_end = .;
 
-    RomLocation = 0xB3C000;
+    RomLocation = 0xA8BB20;
     . = 0x800A5AC0;
     SegmentStart = .;
     code : AT(RomLocation)
@@ -2060,8 +2060,9 @@ SECTIONS
     ovl_Obj_Hana : AT(RomLocation)
     {
         build/src/overlays/actors/ovl_Obj_Hana/z_obj_hana.o(.text)
-        build/asm/ovl_Obj_Hana_data.o(.data)
-        build/asm/ovl_Obj_Hana_rodata.o(.rodata)
+        build/src/overlays/actors/ovl_Obj_Hana/z_obj_hana.o(.data)
+        build/src/overlays/actors/ovl_Obj_Hana/z_obj_hana.o(.rodata)
+        build/src/overlays/actors/ovl_Obj_Hana/z_obj_hana_overlay.o(.ovl)
     }
     SegmentEnd = .;
     SegmentSize = SegmentEnd - SegmentStart;
@@ -3232,8 +3233,8 @@ SECTIONS
     ovl_Boss_01 : AT(RomLocation)
     {
         build/src/overlays/actors/ovl_Boss_01/z_boss_01.o(.text)
-        build/asm/ovl_Boss_01_data.o(.data)
-        build/asm/ovl_Boss_01_rodata.o(.rodata)
+        build/src/overlays/actors/ovl_Boss_01/z_boss_01.o(.data)
+        build/src/overlays/actors/ovl_Boss_01/z_boss_01.o(.rodata)
         ovl_Boss_01_bss_start = .;
     }
     SegmentEnd = .;

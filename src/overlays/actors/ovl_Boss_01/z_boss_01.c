@@ -470,7 +470,7 @@ void Boss01_Init(Actor* thisx, GameState* gameState) {
 
     Actor_SetScale(&this->actor, 0.015f);
     if (this->actor.params == 0xA) {
-        SkelAnime_Init(globalCtx, &this->skelAnime, &D_060222D0, &D_06022550, this->limbDrawTable,
+        SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_060222D0, &D_06022550, this->limbDrawTable,
                        this->transitionDrawTable, 21);
         this->actor.update = func_809D694C;
         this->actor.draw = func_809D6BB4;
@@ -487,7 +487,7 @@ void Boss01_Init(Actor* thisx, GameState* gameState) {
         this->actor.colChkInfo.damageChart = &D_809D79B0;
         D_809D8A14->actor.naviEnemyId = 0x63;
     } else if (this->actor.params == 0x23) {
-        SkelAnime_Init(globalCtx, &this->skelAnime, &D_0600F0A8, &D_06018438, this->limbDrawTable,
+        SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600F0A8, &D_06018438, this->limbDrawTable,
                        this->transitionDrawTable, 52);
         func_809D1E5C(this, globalCtx);
         this->unk_14E[0] = this->actor.currPosRot.rot.z;
@@ -528,7 +528,7 @@ void Boss01_Init(Actor* thisx, GameState* gameState) {
                                   this->colliderSphere3Items);
         Collision_InitSphereGroup(globalCtx, &this->colliderSphere4, &this->actor, &sJntSphInit4,
                                   this->colliderSphere4Items);
-        SkelAnime_Init(globalCtx, &this->skelAnime, &D_0600F0A8, &D_06018438, this->limbDrawTable,
+        SkelAnime_InitSV(globalCtx, &this->skelAnime, &D_0600F0A8, &D_06018438, this->limbDrawTable,
                        this->transitionDrawTable, 52);
         if ((KREG(64) != 0) || ((gSaveContext.owl.unk5 & 0x10) != 0)) {
             func_809D1EA4(this, globalCtx, 0);
@@ -1350,25 +1350,28 @@ void func_809D365C(Boss01* this, GlobalContext* globalCtx) {
     func_809D0AA4(this, globalCtx, 1);
 }
 
-#ifdef NON_MATCHING
-// Many regalloc problems
-// colliderSphere3 loop, i optimised away, but 2 pointers going up by 0x40
 void func_809D370C(Boss01* this, GlobalContext* globalCtx) {
     ActorPlayer* player = PLAYER;
-    ColSphereGroupElement* sphere;
-    s32 i;
-    u8 dmg;
 
     if (this->colliderSphere2.spheres[0].body.unk16 & 2) {
         this->unk_1BC = 5;
-        if ((this->unk_15C == 0) && (this->colliderSphere2.spheres[0].body.unk24->toucher.collidesWith == 0x2000000)) {
-            Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_CLEAR_TAG, this->actor.topPosRot.pos.x,
-                        this->actor.topPosRot.pos.y, this->actor.topPosRot.pos.z, 0, 0, 3, 4);
-            func_800B8EC8(&this->actor, 0x1806);
-            this->unk_15C = 5;
-            return;
+        if (this->unk_15C == 0) {
+            ColBodyInfo* val = this->colliderSphere2.spheres[0].body.unk24;
+            if (val->toucher.collidesWith == 0x2000000) {
+                Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_CLEAR_TAG, this->actor.topPosRot.pos.x,
+                            this->actor.topPosRot.pos.y, this->actor.topPosRot.pos.z, 0, 0, 3, 4);
+                func_800B8EC8(&this->actor, 0x1806);
+                this->unk_15C = 5;
+            }
         }
-    } else if (this->unk_15C == 0) {
+        return;
+    }
+
+    if (this->unk_15C == 0) {
+        s32 i;
+        u8 dmg;
+        ColSphereGroupElement* sphere;
+
         for (i = 0; i < 3; i++) {
             if (this->colliderSphere1.spheres[i].body.unk15 & 2) {
                 this->colliderSphere1.spheres[i].body.unk15 &= ~2;
@@ -1376,6 +1379,7 @@ void func_809D370C(Boss01* this, GlobalContext* globalCtx) {
                 player->unkB80 = 15.0f;
             }
         }
+
         for (i = 0; i < 2; i++) {
             if (this->colliderSphere4.spheres[i].body.unk15 & 2) {
                 this->colliderSphere4.spheres[i].body.unk15 &= ~2;
@@ -1384,30 +1388,35 @@ void func_809D370C(Boss01* this, GlobalContext* globalCtx) {
             }
         }
 
-        for (i = 0, sphere = &this->colliderSphere3.spheres[0]; i < 11; i++, sphere++) {
+        for (i = 0; i < 11; i++) {
+            if (this->colliderSphere3.spheres[i].body.unk16 & 2) {
+                this->colliderSphere3.spheres[i].body.unk16 &= ~2;
 
-            if (sphere->body.unk16 & 2) {
-                sphere->body.unk16 &= ~2;
                 switch (this->actor.colChkInfo.damageEffect) {
                     case 3:
                         this->unk_AD9 = 0xA;
                         goto block_22;
+
                     case 2:
                         this->unk_AD9 = 1;
-                        goto block_23;
+                        break;
+
                     case 4:
                         this->unk_AD9 = 0x14;
                         Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_CLEAR_TAG, this->actor.topPosRot.pos.x,
                                     this->actor.topPosRot.pos.y, this->actor.topPosRot.pos.z, 0, 0, 0, 4);
-                        goto block_23;
+                        break;
+
                     case 11:
                         this->unk_AD9 = 0x28;
                         goto block_22;
+
                     case 12:
                         this->unk_AD9 = 0x1E;
                         Actor_Spawn(&globalCtx->actorCtx, globalCtx, ACTOR_EN_CLEAR_TAG, this->actor.topPosRot.pos.x,
                                     this->actor.topPosRot.pos.y, this->actor.topPosRot.pos.z, 0, 0, 3, 4);
-                        goto block_23;
+                        break;
+
                     case 1:
 block_22:
                         func_809D441C(this, globalCtx);
@@ -1422,39 +1431,37 @@ block_22:
                     case 8:
                     case 9:
                     case 10:
-block_23:
-                        dmg = this->actor.colChkInfo.damage;
-                        D_809D8A18->unk0148 = 0;
-                        if (this->actor.colChkInfo.damageEffect == 1) {
-                            func_809D441C(this, globalCtx);
-                            this->unk_15C = 0xF;
-                        } else if (this->actor.colChkInfo.damageEffect == 0xF) {
-                            func_809D2588(this, globalCtx);
-                            func_8019F1C0(&D_809D8A40, 0x3809);
-                            this->unk_15C = 0xF;
-                        } else {
-                            this->unk_15E = 0xF;
-                            this->actor.colChkInfo.health -= dmg;
-                            this->unk_15C = 5;
-                            if ((s8)this->actor.colChkInfo.health <= 0) {
-                                func_809D3C10(this, globalCtx);
-                                func_800B8EC8(&this->actor, 0x380B);
-                                func_800BBA88(globalCtx, &this->actor);
-                            } else {
-                                func_809D35A8(this, globalCtx, this->actor.colChkInfo.damageEffect);
-                                func_8019F1C0(&D_809D8A40, 0x3809);
-                            }
-                        }
-                        this->unk_1BB = 0;
-                        return;
+                        break;
                 }
+
+                dmg = this->actor.colChkInfo.damage;
+                D_809D8A18->unk0148 = 0;
+                if (this->actor.colChkInfo.damageEffect == 1) {
+                    func_809D441C(this, globalCtx);
+                    this->unk_15C = 0xF;
+                } else if (this->actor.colChkInfo.damageEffect == 0xF) {
+                    func_809D2588(this, globalCtx);
+                    func_8019F1C0(&D_809D8A40, 0x3809);
+                    this->unk_15C = 0xF;
+                } else {
+                    this->unk_15E = 0xF;
+                    this->unk_15C = 5;
+                    this->actor.colChkInfo.health -= dmg;
+                    if ((s8)this->actor.colChkInfo.health <= 0) {
+                        func_809D3C10(this, globalCtx);
+                        func_800B8EC8(&this->actor, 0x380B);
+                        func_800BBA88(globalCtx, &this->actor);
+                    } else {
+                        func_809D35A8(this, globalCtx, this->actor.colChkInfo.damageEffect);
+                        func_8019F1C0(&D_809D8A40, 0x3809);
+                    }
+                }
+                this->unk_1BB = 0;
+                return;
             }
         }
     }
 }
-#else
-GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D370C.asm")
-#endif
 
 void func_809D3A7C(Boss01* this, GlobalContext* globalCtx) {
     func_80137594(&this->skelAnime, &D_06012B70, -5.0f);
@@ -2227,42 +2234,44 @@ void func_809D5FB4(u8* texture, Boss01* this, GlobalContext* globalCtx) {
     }
 }
 
-#ifdef NON_MATCHING
-// Odd register usage (gfxCtx in t0?)
 void func_809D606C(u8* texture, Boss01* this, GlobalContext* globalCtx) {
-    f32 alpha;
+    s32 pad[3];
     GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
-    OPEN_DISPS(gfxCtx);
+    f32 alpha;
+    
+    //OPEN_DISPS(gfxCtx);
 
-    func_8012C28C(globalCtx->state.gfxCtx);
+    {
+        GraphicsContext* oGfxCtx = gfxCtx;
 
-    alpha = (400.0f - this->actor.currPosRot.pos.y) * 0.0025f;
-    if (alpha < 0.0f) {
-        alpha = 0.0f;
+        func_8012C28C(globalCtx->state.gfxCtx);
+      
+        alpha = (400.0f - this->actor.currPosRot.pos.y) * 0.0025f;
+
+        if (alpha < 0.0f) {
+            alpha = 0.0f;
+        }
+        if (alpha > 1.0f) {
+            alpha = 1.0f;
+        }
+
+        gDPSetPrimColor(oGfxCtx->polyOpa.p++, 0, 0, 0, 0, 0, (s8)(alpha * 80.0f));
+        gDPSetEnvColor(oGfxCtx->polyOpa.p++, 0, 0, 0, 0);
+
+        SysMatrix_InsertTranslation(this->actor.currPosRot.pos.x, this->actor.unk88, this->actor.currPosRot.pos.z - 20.0f,
+                                    0);
+        SysMatrix_InsertScale(1.64999997616f, 1.0f, 1.64999997616f, 1);
+
+        gSPMatrix(oGfxCtx->polyOpa.p++, SysMatrix_AppendStateToPolyOpaDisp(globalCtx->state.gfxCtx),
+                  G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
+        gSPDisplayList(oGfxCtx->polyOpa.p++, D_0600C7A8);
+        gDPLoadTextureBlock(oGfxCtx->polyOpa.p++, texture, G_IM_FMT_I, G_IM_SIZ_8b, 64, 64, 0, G_TX_NOMIRROR | G_TX_CLAMP,
+                            G_TX_NOMIRROR | G_TX_CLAMP, 6, 6, G_TX_NOLOD, G_TX_NOLOD);
+        gSPDisplayList(oGfxCtx->polyOpa.p++, D_0600C7C8);
     }
-    if (alpha > 1.0f) {
-        alpha = 1.0f;
-    }
 
-    gDPSetPrimColor(oGfxCtx->polyOpa.p++, 0, 0, 0, 0, 0, (s8)(alpha * 80.0f));
-    gDPSetEnvColor(oGfxCtx->polyOpa.p++, 0, 0, 0, 0);
-
-    SysMatrix_InsertTranslation(this->actor.currPosRot.pos.x, this->actor.unk88, this->actor.currPosRot.pos.z - 20.0f,
-                                0);
-    SysMatrix_InsertScale(1.64999997616f, 1.0f, 1.64999997616f, 1);
-
-    gSPMatrix(oGfxCtx->polyOpa.p++, SysMatrix_AppendStateToPolyOpaDisp(globalCtx->state.gfxCtx),
-              G_MTX_NOPUSH | G_MTX_LOAD | G_MTX_MODELVIEW);
-    gSPDisplayList(oGfxCtx->polyOpa.p++, D_0600C7A8);
-    gDPLoadTextureBlock(oGfxCtx->polyOpa.p++, texture, G_IM_FMT_I, G_IM_SIZ_8b, 64, 64, 0, G_TX_NOMIRROR | G_TX_CLAMP,
-                        G_TX_NOMIRROR | G_TX_CLAMP, 6, 6, G_TX_NOLOD, G_TX_NOLOD);
-    gSPDisplayList(oGfxCtx->polyOpa.p++, D_0600C7C8);
-
-    CLOSE_DISPS(gfxCtx);
+    //CLOSE_DISPS(gfxCtx);
 }
-#else
-GLOBAL_ASM("asm/non_matchings/ovl_Boss_01_0x809D0530/func_809D606C.asm")
-#endif
 
 void func_809D62D4(Boss01* this, GlobalContext* globalCtx) {
     this->actionFunc = func_809D6314;

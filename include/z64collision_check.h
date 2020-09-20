@@ -192,7 +192,7 @@ typedef struct {
     /* 0x290 */ ColCommon* group4[3];
 } CollisionCheckContext; // size = 0x29C
 
-typedef struct ColBodyInfo_t {
+typedef struct ColBodyInfo {
     /* 0x00 */ ColTouch toucher;
     /* 0x08 */ ColBump bumper;
     /* 0x14 */ u8 unk14;
@@ -201,8 +201,8 @@ typedef struct ColBodyInfo_t {
     /* 0x17 */ u8 unk17;
     /* 0x18 */ ColCommon* unk18;
     /* 0x1C */ ColCommon* unk1C;
-    /* 0x20 */ struct ColBodyInfo_t* unk20;
-    /* 0x24 */ struct ColBodyInfo_t* unk24;
+    /* 0x20 */ struct ColBodyInfo* unk20;
+    /* 0x24 */ struct ColBodyInfo* unk24;
 } ColBodyInfo; // size = 0x28
 
 typedef struct {

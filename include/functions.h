@@ -2599,7 +2599,7 @@ void func_8013696C(void); // func_8013696C
 void func_80136990(void); // func_80136990
 void func_80136A48(void); // func_80136A48
 void func_80136A7C(UNK_TYPE1 param_1, UNK_TYPE1 param_2, UNK_TYPE1 param_3, UNK_TYPE1 param_4, UNK_TYPE4 param_5, UNK_TYPE4 param_6); // func_80136A7C
-void SkelAnime_Init(GlobalContext* globalCtx, SkelAnime* skelAnime, SkeletonHeader* skeletonHeaderSeg, AnimationHeader* animationseg, Vec3s* limbDrawTable, Vec3s* arg5, s32 limbCount);
+void SkelAnime_InitSV(GlobalContext* globalCtx, SkelAnime* skelAnime, SkeletonHeader* skeletonHeaderSeg, AnimationHeader* animationseg, Vec3s* limbDrawTable, Vec3s* transitionDrawTable, s32 limbCount);
 void func_80136C84(void); // func_80136C84
 s32 SkelAnime_FrameUpdateMatrix(SkelAnime* skelAnime); // SkelAnime_FrameUpdateMatrix
 void func_80136CF4(void); // func_80136CF4
