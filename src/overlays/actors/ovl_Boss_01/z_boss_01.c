@@ -103,20 +103,20 @@ extern Vtx D_0600C338[];
 extern u8 D_0600C7F8[];
 extern UNK_TYPE D_04076BC0;
 
-static Vec3f D_809D7980 = { 0.0f, 1000.0f, 0.0f};
-static f32 D_809D798C = 10.0f;
+Vec3f D_809D7980 = { 0.0f, 1000.0f, 0.0f};
+f32 D_809D798C = 10.0f;
 
-static ActorDamageChart D_809D7990 = {
+ActorDamageChart D_809D7990 = {
     0x10, 0xF1, 0x00, 0xE1, 0xF1, 0xF1, 0x00, 0x00, 0xE1, 0xE1, 0xF1, 0x22, 0x32, 0x42, 0xF1, 0xF1,
     0x10, 0xE1, 0x10, 0xB0, 0x00, 0x00, 0xF1, 0xE1, 0xD1, 0xC2, 0x00, 0x00, 0x00, 0x00, 0x00, 0xE1,
 };
 
-static ActorDamageChart D_809D79B0 = {
+ActorDamageChart D_809D79B0 = {
     0x10, 0xF1, 0x00, 0xF2, 0x10, 0xF2, 0x00, 0x00, 0xF1, 0xF1, 0xF1, 0x22, 0x32, 0x42, 0xF1, 0x10,
     0x10, 0xF1, 0x10, 0x10, 0x00, 0x00, 0xF1, 0xE1, 0xD2, 0xD2, 0x00, 0x00, 0x00, 0x00, 0x00, 0xF1,
 };
 
-static ColSphereGroupElementInit sJntSphItemsInit1[3] = {
+ColSphereGroupElementInit sJntSphItemsInit1[3] = {
     {
         { 0x02, { 0xF7CFFFFF, 0x04, 0x04 }, { 0xF7CFFFFF, 0x00, 0x00 }, 0x01, 0x01, 0x01 },
         { 0, { { 0, 0, 0 }, 35 }, 100 },
@@ -132,13 +132,13 @@ static ColSphereGroupElementInit sJntSphItemsInit1[3] = {
 };
 
 // D_809D7A3C
-static ColSphereGroupInit sJntSphInit1 = {
+ColSphereGroupInit sJntSphInit1 = {
     { COLTYPE_METAL_SHIELD, 0x11, 0x0D, 0x09, 0x10, COLSHAPE_JNTSPH },
     3,
     sJntSphItemsInit1,
 };
 
-static ColSphereGroupElementInit sJntSphItemsInit2[1] = {
+ColSphereGroupElementInit sJntSphItemsInit2[1] = {
     {
         { 0x02, { 0xF7CFFFFF, 0x00, 0x04 }, { 0xF7CFFFFF, 0x00, 0x00 }, 0x01, 0x01, 0x01 },
         { 0, { { 0, 0, 0 }, 36 }, 100 },
@@ -146,13 +146,13 @@ static ColSphereGroupElementInit sJntSphItemsInit2[1] = {
 };
 
 // D_809D7A70
-static ColSphereGroupInit sJntSphInit2 = {
+ColSphereGroupInit sJntSphInit2 = {
     { COLTYPE_METAL_SHIELD, 0x11, 0x0D, 0x09, 0x10, COLSHAPE_JNTSPH },
     1,
     sJntSphItemsInit2,
 };
 
-static ColSphereGroupElementInit sJntSphItemsInit3[11] = {
+ColSphereGroupElementInit sJntSphItemsInit3[11] = {
     {
         { 0x03, { 0xF7CFFFFF, 0x00, 0x04 }, { 0xF7CFFFFF, 0x00, 0x00 }, 0x01, 0x01, 0x01 },
         { 0, { { 0, 0, 0 }, 20 }, 100 },
@@ -200,13 +200,13 @@ static ColSphereGroupElementInit sJntSphItemsInit3[11] = {
 };
 
 // D_809D7C0C
-static ColSphereGroupInit sJntSphInit3 = {
+ColSphereGroupInit sJntSphInit3 = {
     { COLTYPE_UNK3, 0x11, 0x09, 0x09, 0x10, COLSHAPE_JNTSPH },
     11,
     sJntSphItemsInit3,
 };
 
-static ColSphereGroupElementInit sJntSphItemsInit4[2] = {
+ColSphereGroupElementInit sJntSphItemsInit4[2] = {
     {
         { 0x03, { 0xF7CFFFFF, 0x04, 0x04 }, { 0xF7CFFFFF, 0x00, 0x00 }, 0x09, 0x01, 0x01 },
         { 0, { { 0, 0, 0 }, 36 }, 100 },
@@ -218,21 +218,21 @@ static ColSphereGroupElementInit sJntSphItemsInit4[2] = {
 };
 
 // D_809D7C64
-static ColSphereGroupInit sJntSphInit4 = {
+ColSphereGroupInit sJntSphInit4 = {
     { COLTYPE_UNK3, 0x11, 0x09, 0x09, 0x10, COLSHAPE_JNTSPH },
     2,
     sJntSphItemsInit4,
 };
 
 // D_809D7C74
-static ColCylinderInit sCylinderInit1 = {
+ColCylinderInit sCylinderInit1 = {
     { COLTYPE_UNK3, 0x11, 0x09, 0x39, 0x10, COLSHAPE_CYLINDER },
     { 0x03, { 0xF7CFFFFF, 0x00, 0x04 }, { 0xF7FFFFFF, 0x00, 0x00 }, 0x01, 0x01, 0x01 },
     { 15, 15, 10, { 0, 0, 0 } },
 };
 
 // D_809D7CA0
-static ColCylinderInit sCylinderInit2 = {
+ColCylinderInit sCylinderInit2 = {
     { COLTYPE_UNK3, 0x11, 0x09, 0x39, 0x10, COLSHAPE_CYLINDER },
     { 0x03, { 0xF7CFFFFF, 0x00, 0x04 }, { 0xF7FFFFFF, 0x00, 0x00 }, 0x01, 0x01, 0x01 },
     { 8, 15, 10, { 0, 0, 0 } },
@@ -266,9 +266,9 @@ f32 D_809D7D38[] = {
     0.0f, 350.0f, 350.0f, -350.0f, -350.0f,
 };
 
-Vec3f D_809D7D54 = { 0.0f, -1.0f, 0.0f };
 ColorRGBA8 D_809D7D4C = { 170, 255, 255, 255 };
 ColorRGBA8 D_809D7D50 = { 200, 200, 255, 255 };
+Vec3f D_809D7D54 = { 0.0f, -1.0f, 0.0f };
 
 u8 D_809D7D60[] = {
     0x00, 0x02, 0x04, 0x06, 0x08, 0x0A, 0x0C, 0x0E, 0x10, 0x12, 0x14,
@@ -384,7 +384,8 @@ void func_809D0678(Boss01Effect* effect, Vec3f* arg1, s16 arg2) {
             } else {
                 effect->unk_30 = randPlusMinusPoint5Scaled(8000.0f);
                 effect->unk_2E = randPlusMinusPoint5Scaled(8000.0f);
-                effect->unk_34 = randPlusMinusPoint5Scaled(0.0016f) + 0.0032f;
+                // Nopt quite 0.0016 or 0.0032
+                effect->unk_34 = randPlusMinusPoint5Scaled(0.001600000076f) + 0.00320000015199f;
                 effect->unk_0C.x = randPlusMinusPoint5Scaled(13.0f);
                 effect->unk_0C.y = randZeroOneScaled(4.0f) + 7.0f;
                 effect->unk_0C.z = randPlusMinusPoint5Scaled(13.0f);
@@ -849,7 +850,7 @@ void func_809D1EA4(Boss01* this, GlobalContext* globalCtx, u8 arg2) {
                 func_809D3A7C(this, globalCtx);
                 return;
             }
-            this->unk_162 = randZeroOneScaled(11.99f);
+            this->unk_162 = randZeroOneScaled(11.999f);
         } else {
             this->unk_162 = arg2;
         }
@@ -861,7 +862,7 @@ void func_809D1EA4(Boss01* this, GlobalContext* globalCtx, u8 arg2) {
     this->unk_1A8 = SkelAnime_GetFrameCount(&D_809D7CF4[this->unk_162]->genericHeader);
     this->actionFunc = func_809D20D0;
     this->unk_14E[0] = 0x50;
-    this->unk_14C = randZeroOneScaled(1.99f);
+    this->unk_14C = randZeroOneScaled(1.999f);
     this->unk_9DC = 0;
 }
 
@@ -1970,7 +1971,7 @@ void func_809D519C(Boss01* this, GlobalContext* globalCtx) {
 
     SysMatrix_InsertTranslation(this->actor.currPosRot.pos.x + D_809D8A1C, this->actor.currPosRot.pos.y + D_809D8A20,
                                 this->actor.currPosRot.pos.z + D_809D8A24, 0);
-    SysMatrix_InsertYRotation_f(this->actor.shape.rot.y * 0.000009587f, 1);
+    SysMatrix_InsertYRotation_f(this->actor.shape.rot.y * 0.0000958f, 1);
     SysMatrix_RotateStateAroundXAxis(D_809D8A28);
     SysMatrix_InsertZRotation_f(D_809D8A30, 1);
     SysMatrix_InsertYRotation_f(D_809D8A2C, 1);
@@ -1994,12 +1995,12 @@ void func_809D55CC(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* 
     Boss01* this = THIS;
     s32 pad;
     s8 idx;
-    s8 idx2;
     Vec3f sp40;
 
     if (limbIndex == 0x20) {
         SysMatrix_GetStateTranslation(&this->actor.topPosRot.pos);
     }
+
     idx = D_809D7E68[limbIndex];
     if (idx >= 0) {
         SysMatrix_GetStateTranslation(&this->unk_928[idx]);
@@ -2011,8 +2012,7 @@ void func_809D55CC(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* 
         func_809D089C(idx, &this->colliderSphere3, &sp40);
     }
 
-    idx2 = 2;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 2) {
         SysMatrix_GetStateTranslation(&this->unk_458);
         if (this->unk_1B8 == 2) {
             SysMatrix_MultiplyVector3fByState(&D_809D7E5C, &sp40);
@@ -2020,35 +2020,30 @@ void func_809D55CC(GlobalContext* globalCtx, s32 limbIndex, Gfx** dList, Vec3s* 
         }
     }
 
-    idx2 = 0x1F;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 31) {
         SysMatrix_MultiplyVector3fByState(&D_809D7E44, &sp40);
         func_809D089C(0, &this->colliderSphere1, &sp40);
         SysMatrix_MultiplyVector3fByState(&D_809D7E50, &sp40);
         func_809D089C(1, &this->colliderSphere1, &sp40);
     }
 
-    idx2 = 0x17;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 23) {
         SysMatrix_MultiplyVector3fByState(&D_809D7E38, &sp40);
         func_809D089C(0, &this->colliderSphere2, &sp40);
         func_809D089C(0, &this->colliderSphere4, &sp40);
     }
 
-    idx2 = 0x7;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 7) {
         SysMatrix_GetStateTranslation(&this->unk_440[0]);
     }
 
-    idx2 = 0xC;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 12) {
         SysMatrix_GetStateTranslation(&this->unk_440[1]);
         SysMatrix_GetStateTranslation(&sp40);
         func_809D089C(1, &this->colliderSphere4, &sp40);
     }
 
-    idx2 = 0x20;
-    if (&D_809D7D78[idx2] == &D_809D7D78[limbIndex]) {
+    if (limbIndex == 32) {
         GraphicsContext* gfxCtx = globalCtx->state.gfxCtx;
         // Should be Gfx* and/or referenced directly in the calls,
         // but stack issues arise as it swaps with globalCtx->unk187FC.
@@ -2149,7 +2144,6 @@ void func_809D5BC4(Boss01* this, u8* texture, f32 arg2) {
     Vec3f sp68;
 
     for (i = 0; i < 15; i++) {
-
         if (arg2 != 0.0f) {
             x = D_809D7F30[i];
             if (x < 0) {
@@ -2674,7 +2668,7 @@ void func_809D73D4(GlobalContext* globalCtx) {
             }
 
             SysMatrix_InsertScale(
-                (KREG(48) * 0.00001f) + 0.0179999992251f,
+                (KREG(48) * 0.0001f) + 0.0179999992251f,
                 ((0.007f + (KREG(54) * 0.00001f)) + ((func_809D0550() * 30.0f) * 0.00001f)) * effect->unk_34, 1.0f, 1);
 
             gSPMatrix(oGfxCtx->polyXlu.p++, SysMatrix_AppendStateToPolyOpaDisp(globalCtx->state.gfxCtx),
