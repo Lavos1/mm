@@ -1650,7 +1650,7 @@ struct GlobalContext {
     /* 0x18864 */ void* setupPathList;
     /* 0x18868 */ UNK_PTR unk18868;
     /* 0x1886C */ AnimatedTexture* sceneTextureAnimations;
-    /* 0x18870 */ UNK_TYPE1 pad18870[0x4];
+    /* 0x18870 */ void* actorEffects;
     /* 0x18874 */ u8 unk18874;
     /* 0x18875 */ s8 unk18875;
     /* 0x18876 */ UNK_TYPE1 pad18876[0x4];

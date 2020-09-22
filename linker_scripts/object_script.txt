@@ -7,6 +7,10 @@ object_ikana_obj_001228 = 0x06001228;
 object_fu_kaiten_0005D0 = 0x060005D0;
 object_fu_kaiten_002D30 = 0x06002D30;
 
+/* z_boss_02 */
+D_06009B10 = 0x06009B10;
+D_06009C78 = 0x06009C78;
+
 D_0E000048 = 0x0E000048;
 D_0E000088 = 0x0E000088;
 D_0E000140 = 0x0E000140;
