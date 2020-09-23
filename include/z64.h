@@ -305,7 +305,9 @@ typedef struct {
 } OverlayRelocationSection; // size = 0x14
 
 typedef struct {
-    /* 0x00 */ UNK_TYPE1 pad0[0x1C];
+    /* 0x00 */ UNK_TYPE1 pad00[0xF];
+    /* 0x0F */ s8 unk0F;
+    /* 0x10 */ UNK_TYPE1 pad10[0xC];
 } PermanentSceneFlags; // size = 0x1C
 
 typedef struct {

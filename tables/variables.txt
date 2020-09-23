@@ -4081,7 +4081,7 @@
     0x801F4E08:("D_801F4E08","UNK_TYPE1","",0x1),
     0x801F4E10:("actorCutsceneNextCutscenes","u8","[16]",0x10),
     0x801F4E20:("D_801F4E20","UNK_TYPE1","",0x1),
-    0x801F4E30:("D_801F4E30","UNK_TYPE1","",0x1),
+    0x801F4E30:("D_801F4E30","u8","",0x1),
     0x801F4E31:("D_801F4E31","UNK_TYPE1","",0x1),
     0x801F4E32:("D_801F4E32","UNK_TYPE1","",0x1),
     0x801F4E38:("D_801F4E38","UNK_TYPE1","",0x1),

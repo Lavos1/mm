@@ -3962,7 +3962,7 @@ extern u8 actorCutsceneWaiting[16]; // D_801F4DF8
 extern UNK_TYPE1 D_801F4E08; // D_801F4E08
 extern u8 actorCutsceneNextCutscenes[16]; // D_801F4E10
 extern UNK_TYPE1 D_801F4E20; // D_801F4E20
-extern UNK_TYPE1 D_801F4E30; // D_801F4E30
+extern u8 D_801F4E30; // D_801F4E30
 extern UNK_TYPE1 D_801F4E31; // D_801F4E31
 extern UNK_TYPE1 D_801F4E32; // D_801F4E32
 extern UNK_TYPE1 D_801F4E38; // D_801F4E38
